@@ -6,6 +6,15 @@
       @reset="onReset"
       class="q-gutter-md"
     >
+    <!-- language -->
+    <q-input
+        filled
+        v-model="language"
+        label="ภาษา"
+        hint="ภาษา"
+        lazy-rules
+        :rules="[ val => val && val.length > 0 || 'กรุณาใส่ภาษา']"
+      />
     <!-- id -->
     <q-input
         filled
@@ -67,11 +76,13 @@ export default {
     const id = ref("6604101376")
     const name = ref("วรเดช")
     const surname = ref("ปิ่นทอง")
+    const language = ref("ภาษาไทย")
     const age = ref(null)
     const accept = ref(false)
 
 
     return {
+      language,
       name,
       age,
       accept,
@@ -101,6 +112,7 @@ export default {
         name.value = null
         age.value = null
         accept.value = false
+        language.value = false
       }
     }
   }
